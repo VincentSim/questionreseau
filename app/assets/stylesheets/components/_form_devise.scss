@@ -1,0 +1,13 @@
+#devise_sessions_new, #devise_registrations_new {
+
+  .form-frame{
+    border: 1px solid lightgray;
+    border-radius: 15px;
+    padding: 0px;
+
+    h2{
+      color: $brand-color;
+    }
+  }
+
+}
