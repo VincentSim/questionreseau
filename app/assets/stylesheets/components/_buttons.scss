@@ -1,0 +1,18 @@
+.btn-cta{
+    color: white;
+    background: #db1931;
+    border-color: #ad1427;
+    margin-left: 10px;
+    padding: 0 20px;
+    border-radius: 20em;
+    line-height: 40px;
+    background-color: #db1931;
+    color: white;
+    font-size: 14px;
+    border: 2px solid #db1931;
+
+    &:hover{
+      color: white;
+      border-color: darken($brand-color, 10%);
+  }
+}
