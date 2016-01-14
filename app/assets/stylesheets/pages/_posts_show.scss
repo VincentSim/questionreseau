@@ -1,0 +1,21 @@
+#posts_show{
+
+  .card{
+    background-color: white;
+    box-shadow: 8px 8px 0px #aaa;
+    padding: 15px;
+    width:80%;
+    margin: auto;
+  }
+  .card-title, .card-body{
+    color: #616161;
+  }
+
+  .card-body{
+    margin-bottom: 20px;
+  }
+
+  .links{
+    text-align: center;
+  }
+}
