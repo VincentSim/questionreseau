@@ -1,6 +1,8 @@
 class ProfilesController < ApplicationController
 
   def show
+    @posts = current_user.posts.order("created_at DESC")
+  end
     # if current_user.id == params[:id].to_i
     #   @likes = current_user.likes.order("created_at DESC")
     #   @follows = current_user.follows
@@ -14,7 +16,7 @@ class ProfilesController < ApplicationController
     # else
     #   redirect_to profile_path(id:current_user.id)
     # end
-  end
+
 
   def favorites
      # @likes = current_user.likes.order("created_at DESC").page(params[:page] || 1).per(10)

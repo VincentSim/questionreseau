@@ -1,0 +1,15 @@
+<div class="container">
+  <h1>Mes questions</h1>
+
+  <div class="posts-list">
+    <% @posts.each do |post| %>
+      <%= link_to post do %>
+        <div class="post-card">
+        <h2><%= post.title %></h2>
+        <div><%= post.description.truncate(300) %></div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+</div>
