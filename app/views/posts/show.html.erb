@@ -1,15 +1,17 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @post.description %>
-</p>
-
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<div><%= link_to 'Destroy', @post, method: :delete, data: { confirm: 'Are you sure?' } %></div>
-<%= link_to 'Back', posts_path %>
+  <div class="card">
+    <div class="card-title">
+      <h1><%= @post.title %></h1>
+    </div>
+    <div class="card-body">
+      <%= @post.description %>
+    </div>
+    <div class="links">
+      <%= link_to 'Edit', edit_post_path(@post) %> |
+      <%= link_to 'Destroy', @post, method: :delete, data: { confirm: 'Are you sure?' } %> |
+      <%= link_to 'Back', posts_path %>
+    </div>
+  </div>
+</div>
