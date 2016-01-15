@@ -43,6 +43,7 @@ class AnswersController < ApplicationController
   # end
 
   def destroy
+    set_answer
     @post = Post.find(@answer.post_id)
     @answer.destroy
     @answers = @post.answers.reverse
