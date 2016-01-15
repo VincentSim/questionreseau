@@ -15,7 +15,6 @@ class PostsController < ApplicationController
 
   # GET /posts/new
   def new
-    binding.pry
     @post = Post.new
   end
 
