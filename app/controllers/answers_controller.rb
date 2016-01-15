@@ -1,5 +1,5 @@
 class AnswersController < ApplicationController
-
+  before_action :authenticate_user!
 
   def create
     @user = User.find(params[:user_id])
@@ -42,16 +42,16 @@ class AnswersController < ApplicationController
   #   end
   # end
 
-  # def destroy
-  #   @post = Post.find(@answer.post_id)
-  #   @answer.destroy
-  #   @answers = @post.answers.reverse
-  #   @answer = Answer.new
-  #   respond_to do |format|
-  #     format.html { redirect_to post_path(@post), notice: 'You remove your answer from this post' }
-  #     format.js
-  #   end
-  # end
+  def destroy
+    @post = Post.find(@answer.post_id)
+    @answer.destroy
+    @answers = @post.answers.reverse
+    @answer = Answer.new
+    respond_to do |format|
+      format.html { redirect_to post_path(@post), notice: 'You remove your answer from this post' }
+      format.js
+    end
+  end
 
 
 private

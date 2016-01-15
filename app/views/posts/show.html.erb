@@ -14,22 +14,32 @@
       <%= link_to 'Back', posts_path %>
     </div>
   </div>
+
+  <div class="answer-list">
+    <h2> Les réponses : </h2>
+    <% @post.answers.each do |answer| %>
+      <div class="answer-card">
+        <div class="answer-title">
+          Posté par <%= User.find(answer.user_id).email %> - le <%= answer.created_at.strftime("%d/%m/%Y")  %>
+        </div>
+        <div class="answer-body">
+          <%= answer.content %>
+        </div>
+      </div>
+    <% end %>
+    <div id="create-answer-div" >
+     <%= simple_form_for([@user, @answer]) do |f| %>
+      <div class="field" >
+        <%= f.text_area :content, hide_label: :true, :id => "text-answer-area" %>
+      </div>
+        <%= f.hidden_field :post_id, :value => @post.id %>
+       <div class="actions" id= "post-answer">
+         <%= f.submit 'Répondre', class:"btn-cta" %>
+       </div>
+     <% end %>
+    </div>
+  </div>
 </div>
 
-<div class="answer-list">
-  <% @post.answers.each do |answer| %>
-    <%= answer.content %>
-  <% end %>
-</div>
-<div id="create-answer-div" >
- <%= simple_form_for([@user, @answer]) do |f| %>
-  <div class="field" >
-    <%= f.text_area :content, hide_label: :true, :id => "text-answer-area" %>
-  </div>
-    <%= f.hidden_field :post_id, :value => @post.id %>
-   <div class="actions" id= "post-answer">
-     <%= f.submit 'Répondre' %>
-   </div>
- <% end %>
-</div>
+
 
