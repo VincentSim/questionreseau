@@ -8,6 +8,8 @@ class PostsController < ApplicationController
 
   # GET /posts/1
   def show
+    @answer = Answer.new
+    @user = current_user
   end
 
   # GET /posts/new

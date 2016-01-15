@@ -15,3 +15,21 @@
     </div>
   </div>
 </div>
+
+<div class="answer-list">
+  <% @post.answers.each do |answer| %>
+    <%= answer.content %>
+  <% end %>
+</div>
+<div id="create-answer-div" >
+ <%= simple_form_for([@user, @answer]) do |f| %>
+  <div class="field" >
+    <%= f.text_area :content, hide_label: :true, :id => "text-answer-area" %>
+  </div>
+    <%= f.hidden_field :post_id, :value => @post.id %>
+   <div class="actions" id= "post-answer">
+     <%= f.submit 'Répondre' %>
+   </div>
+ <% end %>
+</div>
+
