@@ -1,17 +1,50 @@
 <div class="container">
-  <p id="notice"><%= notice %></p>
+
 
   <div class="card">
     <div class="card-title">
-      <h1><%= @post.title %></h1>
+      <h1><%= @post.title %></h1> posée par <%= @post.user.email %> - le <%= @post.created_at.strftime("%d/%m/%Y")  %>
     </div>
     <div class="card-body">
       <%= @post.description %>
     </div>
     <div class="links">
-      <%= link_to 'Edit', edit_post_path(@post) %> |
-      <%= link_to 'Destroy', @post, method: :delete, data: { confirm: 'Are you sure?' } %> |
-      <%= link_to 'Back', posts_path %>
+      <%if @post.user == current_user %>
+        <%= link_to 'Edit', edit_post_path(@post) %> |
+        <%= link_to 'Destroy', @post, method: :delete, data: { confirm: 'Are you sure?' } %> |
+        <%= link_to 'Back', posts_path %>
+      <% else %>
+        <%= link_to 'Back', posts_path %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="answer-list">
+    <h2> Les réponses : </h2>
+    <% @post.answers.each do |answer| %>
+      <div class="answer-card">
+        <div class="answer-title">
+          Réponse de <%= User.find(answer.user_id).email %> - le <%= answer.created_at.strftime("%d/%m/%Y")  %>
+          <%= link_to "supprimer ma réponse", { action: "destroy", controller:"answers",  id: answer.id }, method: :delete, data: { confirm: "Are you sure?" } %>
+        </div>
+        <div class="answer-body">
+          <%= answer.content %>
+        </div>
+      </div>
+    <% end %>
+    <div id="create-answer-div" >
+     <%= simple_form_for([@user, @answer]) do |f| %>
+      <div class="field" >
+        <%= f.text_area :content, hide_label: :true, :id => "text-answer-area" %>
+      </div>
+        <%= f.hidden_field :post_id, :value => @post.id %>
+       <div class="actions" id= "post-answer">
+         <%= f.submit 'Répondre', class:"btn-cta" %>
+       </div>
+     <% end %>
     </div>
   </div>
 </div>
+
+
+

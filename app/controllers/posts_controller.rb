@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!, except: [:index]
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   # GET /posts
@@ -8,10 +9,13 @@ class PostsController < ApplicationController
 
   # GET /posts/1
   def show
+    @answer = Answer.new
+    @user = current_user
   end
 
   # GET /posts/new
   def new
+    binding.pry
     @post = Post.new
   end
 

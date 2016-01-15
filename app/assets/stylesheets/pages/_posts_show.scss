@@ -6,16 +6,61 @@
     padding: 15px;
     width:80%;
     margin: auto;
+    margin-top: 30px;
   }
-  .card-title, .card-body{
+  .card-title > h1, .card-body{
+    color:#616161;;
+  }
+
+  .card-title{
+    border-bottom: 1px solid lightgray;
+    margin-bottom: 10px;
     color: #616161;
+    /*h1{
+      color:#616161;;
+    }*/
   }
 
   .card-body{
     margin-bottom: 20px;
+
   }
 
   .links{
     text-align: center;
+  }
+
+  h2{
+    color:#DB1931;
+    text-align: center;
+  }
+  .answer-list{
+    background-color: white;
+    box-shadow: 8px 8px 0px #aaa;
+    padding: 15px;
+    width:80%;
+    margin: auto;
+  }
+
+  .answer-body{
+    padding-bottom: 20px;
+    color: #616161;
+  }
+  .answer-title{
+    border-bottom: 1px solid lightgray;
+    color: #616161;
+  }
+
+  form{
+    textarea{
+      width: 100%;
+      border: 1px solid lightgray;
+      border-radius: 3px;
+    }
+
+    .btn-cta{
+      display: block;
+      margin: auto;
+    }
   }
 }
